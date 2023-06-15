@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog Website</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>My Blog Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#segments">Segments</a></li>
+        <li><a href="#news-feed">News</a></li>
+        <li><a href="#upcoming-events">Events</a></li>
+        <li><a href="#job-board">Jobs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="segments">
+    <div class="card mb-2">
+      <div class="card-header">
+        <h3>Segment 1</h3>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><a href="#">Sub-segment 1.1</a></li>
+          <li><a href="#">Sub-segment 1.2</a></li>
+          <li><a href="#">Sub-segment 1.3</a></li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+    </div>
+  
+    <div class="card mb-2">
+      <div class="card-header">
+        <h3>Segment 2</h3>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><a href="#">Sub-segment 2.1</a></li>
+          <li><a href="#">Sub-segment 2.2</a></li>
+          <li><a href="#">Sub-segment 2.3</a></li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+    </div>
+  
+    <div class="card mb-2">
+      <div class="card-header">
+        <h3>Segment 3</h3>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><a href="#">Sub-segment 3.1</a></li>
+          <li><a href="#">Sub-segment 3.2</a></li>
+          <li><a href="#">Sub-segment 3.3</a></li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-2">
+      <div class="card-header">
+        <h3>Segment 4</h3>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><a href="#">Sub-segment 4.1</a></li>
+          <li><a href="#">Sub-segment 4.2</a></li>
+          <li><a href="#">Sub-segment 4.3</a></li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+    </div>
+  </main>
+  <section id="news-feed">
+    <h2>News Feed</h2>
+    <ul id="news-list"></ul>
+  </section>
+  <section id="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div id="event-carousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-bs-target="#event-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#event-carousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#event-carousel" data-bs-slide-to="2"></li>
+        <!-- Add more indicators as needed -->
+      </ol>
+  
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="event1.jfif" alt="Event 1">
+          <div class="carousel-caption">
+            <h3>Event 1</h3>
+            <p>Date: June 20, 2023</p>
+            <p>Location: ABC Conference Center</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="event2.jfif" alt="Event 2">
+          <div class="carousel-caption">
+            <h3>Event 2</h3>
+            <p>Date: June 25, 2023</p>
+            <p>Location: XYZ Convention Hall</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="event3.jfif" alt="Event 3">
+          <div class="carousel-caption">
+            <h3>Event 3</h3>
+            <p>Date: June 30, 2023</p>
+            <p>Location: PQR Exhibition Center</p>
+          </div>
+        </div>
+        <!-- Add more carousel items as needed -->
+      </div>
+  
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#event-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#event-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+  </section>
+<section id="job-board">
+  <div class="job-board">
+    <h2>Job Board</h2>
+  
+    <div class="filters">
+      <label for="filter-location">Location:</label>
+      <select id="filter-location">
+        <option value="">All</option>
+        <option value="New York">New York</option>
+        <option value="San Francisco">San Francisco</option>
+        <option value="London">London</option>
+        <!-- Add more location options as needed -->
+      </select>
+    </div>
+  
+    <input type="text" id="search-input" placeholder="Search jobs">
+  
+    <div class="job-listings">
+      <!-- Job Listing 1 -->
+      <div class="job-listing" data-location="New York">
+        <h3>Job Title 1</h3>
+        <p>Company Name 1</p>
+        <p>New York</p>
+        <p>Job Description 1</p>
+      </div>
+  
+      <!-- Job Listing 2 -->
+      <div class="job-listing" data-location="San Francisco">
+        <h3>Job Title 2</h3>
+        <p>Company Name 2</p>
+        <p>San Francisco</p>
+        <p>Job Description 2</p>
+      </div>
+  
+      <!-- Add more job listings as needed -->
+    </div>
+  </div>
+</section>
+  <footer>
+    <p>&copy; 2023 My Blog Website. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+/* Customize the styling as per your design requirements */
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    padding: 0;
+    text-align: center;   
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    text-align: center;
+
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+main {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+
+}
+
+.segment {
+  flex-basis: 20%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#event-carousel {
+  margin: 0 auto;
+}
+
+.carousel {
+  width: 50%;
+}
+
+#news-feed {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+#news-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#news-list li {
+  margin-bottom: 15px;
+}
+
+.news-article {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-description {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.news-date {
+  font-size: 12px;
+  color: #888888;
+}
+
+.news-image {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+.card-header {
+  margin-bottom: 5px;
+}
+
+.card-body {
+  padding-top: 5px;
+}
+
+.news-date {
+  color: #888888;
+  opacity: 0.6;
+}
+
+.job-board {
+  text-align: left;
+  margin-left: 90px;
+  margin-top: 50px;
+  margin-right: 90px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.job-listing {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.job-listing h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.job-listing p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.job-board h2 {
+  text-align: left;
+}
