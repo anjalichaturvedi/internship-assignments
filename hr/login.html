@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HR Job Board</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>HR Desk</h1>
+    <h4>We make hiring easy</h4>
+    <!-- Login Section -->
+    <div class="login-section" id="login-section">
+      <h3>Login</h3>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+      </div>
+      <div class="form-group">
+        <button type="button" onclick="login()">Login</button>
+      </div>
+      <div id="login-error"></div>
+      <div class="registration-link">
+        Haven't registered yet? <a href="#" onclick="showRegistrationSection()">Register</a>
+      </div>
+    </div>
+
+    <!-- Registration Section -->
+    <div class="registration-section" id="registration-section" style="display: none;">
+      <h3>Registration</h3>
+      <div class="form-group">
+        <label for="new-username">Name:</label>
+        <input type="text" id="new-name">
+      </div>
+      <div class="form-group">
+        <label for="new-username">Company:</label>
+        <input type="text" id="new-company">
+      </div>
+      <div class="form-group">
+        <label for="new-username">Username:</label>
+        <input type="text" id="new-username">
+      </div>
+      <div class="form-group">
+        <label for="new-password">Password:</label>
+        <input type="password" id="new-password">
+      </div>
+      <div class="form-group">
+        <button type="button" onclick="register()">Register</button>
+      </div>
+      <div id="registration-success"></div>
+    </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section" id="content-section" style="display: none;">
+      <!-- Job Posting Section -->
+      <div id="job-posting-section">
+        <!-- Job posting form goes here -->
+      </div>
+
+      <!-- Job Board Section -->
+      <div class="job-board" id="job-board">
+        <!-- Job board and filters go here -->
+      </div>
+
+      <!-- Applications Section -->
+      <div class="applications-section" id="applications-section">
+        <h3>Applications</h3>
+        <div id="applications-list"></div>
+      </div>
+
+  
+      <!-- Search Candidate Section -->
+      <div class="search-candidate-section" id="search-candidate-section">
+        <h3>Search Candidates</h3>
+        <div class="form-group">
+          <label for="search-query">Search Query:</label>
+          <input type="text" id="search-query">
+        </div>
+        <div class="form-group">
+          <label for="search-location">Location:</label>
+          <input type="text" id="search-location">
+        </div>
+        <div class="form-group">
+          <label for="search-experience">Experience:</label>
+          <input type="text" id="search-experience">
+        </div>
+        <div class="form-group">
+          <label for="search-skills">Skills:</label>
+          <input type="text" id="search-skills">
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="searchCandidates()">Search</button>
+        </div>
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dummy applications data
+    var applications = [
+      {
+        name: 'John Doe',
+        experience: '2 years',
+        skills: 'JavaScript, HTML, CSS',
+        location: 'New York'
+      },
+      {
+        name: 'Jane Smith',
+        experience: '5 years',
+        skills: 'Python, SQL, Data Analysis',
+        location: 'San Francisco'
+      },
+      {
+        name: 'David Johnson',
+        experience: '3 years',
+        skills: 'Java, Spring, Hibernate',
+        location: 'Chicago'
+      }
+    ];
+
+    // Login function
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Perform your authentication logic here
+      // For simplicity, let's assume the username is "admin" and password is "password"
+      if (username === 'admin' && password === 'password') {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('content-section').style.display = 'block';
+        displayApplications();
+      } else {
+        var loginError = document.getElementById('login-error');
+        loginError.innerHTML = 'Invalid username or password.';
+      }
+    }
+   // Function to show the registration section
+   function showRegistrationSection() {
+      var loginSection = document.getElementById('login-section');
+      var registrationSection = document.getElementById('registration-section');
+
+      loginSection.style.display = 'none';
+      registrationSection.style.display = 'block';
+    }
+
+    // Registration function
+    function register() {
+      var name = document.getElementById('new-name').value;
+      var company = document.getElementById('new-company').value;
+      var username = document.getElementById('new-username').value;
+      var password = document.getElementById('new-password').value;
+
+      // Perform your registration logic here
+      // For simplicity, let's just display a success message
+      var registrationSuccess = document.getElementById('registration-success');
+      registrationSuccess.innerHTML = 'Registration successful. You can now login.';
+    }
+    // Display applications
+    function displayApplications() {
+      var applicationsList = document.getElementById('applications-list');
+      applicationsList.innerHTML = '';
+
+      if (applications.length === 0) {
+        applicationsList.innerHTML = '<p>No applications found.</p>';
+        return;
+      }
+
+      applications.forEach(function(application) {
+        var applicationElement = document.createElement('div');
+        applicationElement.classList.add('application');
+        applicationElement.innerHTML = '<p class="title">' + application.name + '</p>' +
+          '<p><strong>Experience:</strong> ' + application.experience + '</p>' +
+          '<p><strong>Skills:</strong> ' + application.skills + '</p>' +
+          '<p><strong>Location:</strong> ' + application.location + '</p>';
+
+        applicationsList.appendChild(applicationElement);
+      });
+    }
+
+    // Search candidates
+    function searchCandidates() {
+      var searchQuery = document.getElementById('search-query').value.toLowerCase();
+      var searchLocation = document.getElementById('search-location').value.toLowerCase();
+      var searchExperience = document.getElementById('search-experience').value.toLowerCase();
+      var searchSkills = document.getElementById('search-skills').value.toLowerCase();
+
+      var filteredApplications = applications.filter(function(application) {
+        return (
+          application.name.toLowerCase().includes(searchQuery) &&
+          application.location.toLowerCase().includes(searchLocation) &&
+          application.experience.toLowerCase().includes(searchExperience) &&
+          application.skills.toLowerCase().includes(searchSkills)
+        );
+      });
+
+      var searchResults = document.getElementById('search-results');
+      searchResults.innerHTML = '';
+
+      if (filteredApplications.length === 0) {
+        searchResults.innerHTML = '<p>No candidates found matching the search criteria.</p>';
+        return;
+      }
+
+      filteredApplications.forEach(function(application) {
+        var applicationElement = document.createElement('div');
+        applicationElement.classList.add('application');
+        applicationElement.innerHTML = '<p class="title">' + application.name + '</p>' +
+          '<p><strong>Experience:</strong> ' + application.experience + '</p>' +
+          '<p><strong>Skills:</strong> ' + application.skills + '</p>' +
+          '<p><strong>Location:</strong> ' + application.location + '</p>';
+
+        searchResults.appendChild(applicationElement);
+      });
+    }
+
+// Function to mark an application as fetched
+function markAsFetched(index) {
+  var selectedApplication = applications[index];
+  // Perform any desired actions with the selected application (e.g., save to database, update status)
+
+  // Optional: Remove the selected application from the applications array if desired
+  applications.splice(index, 1);
+
+  // Update the displayed applications
+  displayApplications();
+}
+
+// Function to display applications
+function displayApplications() {
+  var applicationsList = document.getElementById('applications-list');
+  applicationsList.innerHTML = '';
+
+  if (applications.length === 0) {
+    applicationsList.innerHTML = '<p>No applications found.</p>';
+    return;
+  }
+
+  applications.forEach(function(application, index) {
+    var applicationElement = document.createElement('div');
+    applicationElement.classList.add('application');
+    applicationElement.innerHTML = '<p class="title">' + application.name + '</p>' +
+      '<p><strong>Experience:</strong> ' + application.experience + '</p>' +
+      '<p><strong>Skills:</strong> ' + application.skills + '</p>' +
+      '<p><strong>Location:</strong> ' + application.location + '</p>' +
+      '<button onclick="markAsFetched(' + index + ')">Mark as Selected</button>';
+
+    applicationsList.appendChild(applicationElement);
+  });
+}
+
+// Call the displayApplications function to initially display the applications
+displayApplications();
+// Dummy fetched applications data
+var fetchedApplications = [];
+
+// Function to mark an application as fetched
+function markAsFetched(index) {
+  var selectedApplication = applications[index];
+  // Perform any desired actions with the selected application (e.g., save to database, update status)
+
+  // Add the selected application to the fetchedApplications array
+  fetchedApplications.push(selectedApplication);
+
+  // Optional: Remove the selected application from the applications array if desired
+  applications.splice(index, 1);
+
+  // Update the displayed applications
+  displayApplications();
+  displayFetchedApplications(); // Call the function to display fetched applications
+}
+
+// Function to display fetched applications
+function displayFetchedApplications() {
+  var fetchedApplicationsList = document.getElementById('fetched-applications-list');
+  fetchedApplicationsList.innerHTML = '';
+
+  if (fetchedApplications.length === 0) {
+    fetchedApplicationsList.innerHTML = '<p>No fetched applications found.</p>';
+    return;
+  }
+
+  fetchedApplications.forEach(function(application) {
+    var applicationElement = document.createElement('div');
+    applicationElement.classList.add('application');
+    applicationElement.innerHTML = '<p class="title">' + application.name + '</p>' +
+      '<p><strong>Experience:</strong> ' + application.experience + '</p>' +
+      '<p><strong>Skills:</strong> ' + application.skills + '</p>' +
+      '<p><strong>Location:</strong> ' + application.location + '</p>';
+
+    fetchedApplicationsList.appendChild(applicationElement);
+  });
+
+  // Show the fetched applications section
+  document.getElementById('fetched-applications-section').style.display = '';
+}
+
+// Call the displayApplications function to initially display the applications
+displayApplications();
+
+
+  </script>
+</body>
+</html>
